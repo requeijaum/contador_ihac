@@ -1,0 +1,235 @@
+//////////////////////////////////////////////////////////	
+//							//
+//	PROGRAMA CONTADOR DE HORAS CURRICULARES		//
+//							//
+//	Gustavo Araujo e Rafael Requiao			//
+//							//
+//							//
+//							//	
+//////////////////////////////////////////////////////////
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/*
+char materia[2][20] = 	{	{"MAT01","68"},
+							{"MAT02","68"},
+							{"MAT03","68"},
+							{"MAT04","68"},
+							{"MAT05","68"},
+
+							{"MAT06","68"},
+							{"MAT07","68"},
+							{"MAT08","68"},
+							{"MAT09","68"},
+							{"MAT10","68"},
+
+							{"MAT11","68"},
+							{"MAT12","68"},
+							{"MAT13","68"},
+							{"MAT14","68"},
+							{"MAT15","68"},
+
+							{"MAT16","68"},
+							{"MAT17","68"},
+							{"MAT18","68"},
+							{"MAT19","68"},
+							{"MAT20","68"},
+
+						};
+*/						
+						
+struct _materia {
+	char cod;
+	int  carga;
+	int  tipo;  //0 = exatas , 1 = artisticas , 2 = humanisticas
+};
+
+static struct _materia materia[37];
+						
+static int cargahoraria[7] = 	{136 , 136 , 816 , 476 , 476 , 360, 2400};
+							
+int x , pag , a , b ;							
+							
+							
+/* 
+	cargahoraria[0] --> humanisticas 					= 136h
+	cargahoraria[1] --> artisticas						= 136h
+	cargahoraria[2] --> exatas							= 816h
+	cargahoraria[3] --> componente livre				= 476h
+	cargahoraria[4]	-->	obrigatorias					= 476h
+	cargahoraria[5] --> atividades complementares		= 360h
+	cargahoraria[6] --> carga horaria do curso (total)	= 2400h
+	
+*/
+
+int main() {
+
+
+	//precarregar informações
+	
+	materia[0].cod 		= "ENGC99" ;	//primeira materia de EXATAS
+	materia[0].carga	= 102;
+	
+	materia[1].cod 		= "MATA01" ;
+	materia[1].carga	=  68;
+	
+	materia[2].cod 		= "MATA02" ;
+	materia[2].carga	=  102;
+	
+	materia[3].cod 		= "QUI037" ;
+	materia[3].carga	=  136;
+	
+	materia[4].cod 		= "ENGD01" ;
+	materia[4].carga	=  68;
+	
+	materia[5].cod 		= "FIS121" ;
+	materia[5].carga	=  102;
+	
+	materia[6].cod 		= "MATA03" ;
+	materia[6].carga	=  102;
+	
+	materia[7].cod 		= "MATA07" ;
+	materia[7].carga	=  68;
+	
+	materia[8].cod 		= "QUIA14" ;
+	materia[8].carga	=  85;
+	
+	materia[9].cod 		= "ENGD02" ;
+	materia[9].carga	=  68;
+	
+	//10
+	
+	materia[10].cod 	= "FIS122" ;
+	materia[10].carga	=  102;
+
+	materia[11].cod 	= "MATA04" ;
+	materia[11].carga	=  102;
+
+	materia[12].cod 	= "QUIA01" ;
+	materia[12].carga	=  102;
+
+	materia[13].cod 	= "QUIA15" ;
+	materia[13].carga	=  68;
+
+	materia[14].cod 	= "ENG372" ;
+	materia[14].carga	=  68;
+
+	materia[15].cod 	= "ENGD04" ;
+	materia[15].carga	=  68;
+
+	materia[16].cod 	= "FIS123" ;
+	materia[16].carga	=  102;
+
+	materia[17].cod 	= "QUI138" ;
+	materia[17].carga	=  68;
+
+	materia[18].cod 	= "QUIA16" ;
+	materia[18].carga	=  68;
+
+	materia[19].cod 	= "QUIA17" ;	//ultima materia de EXATAS
+	materia[19].carga	=  34;
+
+	
+	//20
+	
+	materia[20].cod 	= "HACB07" ;	//primeira materia de ARTISTICAS
+	materia[20].carga	=  68;
+
+	materia[21].cod 	=  ;	
+	materia[21].carga	=  ;
+
+	materia[22].cod 	=  ;
+	materia[22].carga	=  ;
+
+	materia[23].cod 	=  ;
+	materia[23].carga	=  ;
+
+	materia[24].cod 	=  ;
+	materia[24].carga	=  ;
+
+	materia[25].cod 	=  ;
+	materia[25].carga	=  ;
+
+	materia[26].cod 	=  ;
+	materia[26].carga	=  ;
+
+	materia[27].cod 	=  ;
+	materia[27].carga	=  ;
+
+	materia[28].cod 	=  ;	//ultima materia de ARTISTICAS
+	materia[28].carga	=  ;
+
+	materia[29].cod 	=  ;	//primeira materia de HUMANISTICAS
+	materia[29].carga	=  ;
+
+	//30
+	
+	materia[30].cod 	=  ;
+	materia[30].carga	=  ;
+
+	materia[31].cod 	=  ;
+	materia[31].carga	=  ;
+
+	materia[32].cod 	=  ;
+	materia[32].carga	=  ;
+
+	materia[33].cod 	=  ;
+	materia[33].carga	=  ;
+
+	materia[34].cod 	=  ;
+	materia[34].carga	=  ;
+
+	materia[35].cod 	=  ;
+	materia[35].carga	=  ;
+
+	materia[36].cod 	=  ;	//ultima materia de HUMANISTICAS
+	materia[36].carga	=  ;
+	
+	//definir o tipo das materias
+	if 
+	
+
+	printf("\n\n\n");
+	printf("\n**************************************************"); //60 caracteres
+	printf("\n      CALCULADORA DE CARGA HORARIA RESTANTE");
+	printf("\n          meh 12345");
+	printf("\n          aeHOOO");
+	printf("\n**************************************************"); //60 caracteres
+	printf("\n\n\n");
+	
+	
+	while (1) {
+		//informar materias no sistema
+		//dividir por telas... 10 em cada lado
+		printf("\n\nDigite a página para listagem: ");
+		scanf("%d", pag);
+	
+		switch (pag) {
+	
+			case 1 : {
+				a = 0  ; b = 10; break;
+			} 
+	
+			case 2 : {
+				a = 10 ; b = 20; break;
+			}
+	
+		}
+	
+		for (x = a; x < b; x++) {   //inicial a=0 , b=10
+			printf("\n\n\n");
+
+			//imprimir materia e cargahoraria ao lado - 10 e depois mais 10
+			printf("%s %s", materia[0][x], materia[1][x]);  //formatar esse printf depois com tabulação
+		
+			printf("\n\n\n");
+
+		
+		}
+	
+	}
+	
+
+}

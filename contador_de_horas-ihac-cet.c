@@ -50,13 +50,15 @@ struct _materia {
 	// segundo o GCC
 };
 
-//static 
-struct _materia materia[37];
+static struct _materia materia[37];
 						
 //static 
 int cargahoraria[7] = 	{136 , 136 , 816 , 476 , 476 , 360, 2400};
 							
-int x , pag , a , b , opcao, i;		
+int x , pag , a , b , opcao, i;	
+
+int aeho, y, n, registrado;
+
 
 
 //provavelmente eu precise de um typedef... ou não
@@ -261,17 +263,22 @@ int listar() {
 				printf("\n");
 		
 				//imprimir materia e cargahoraria ao lado - 10 e depois mais 10
-				printf("  -->%s -- %d horas", materia[x].cod, materia[x].carga);  
+				printf("  -->%s -- %d horas  -- tipo: %d", materia[x].cod, materia[x].carga, materia[x].tipo);  
 				//formatar esse printf depois com tabulação
 				printf("\n");
 		
 			}
 		}
 	}
+
+	printf("\n=======================================================\n\n\n");
+	
+	
 }
 
 int cadastrar() {
 	printf("\nWIP\n");
+
 
 	/*
 	//pseudo-código
@@ -290,26 +297,36 @@ int cadastrar() {
 	printf("\nDigite o código da materia: ");
 	fflush(stdin);
 //	scanf("%[A-Z0-9]", &agoravai[7]);   //ta bugando pq???
-	int aeho;
+
 	for (aeho=0; aeho<7; aeho++) {
 		agoravai[aeho] = getchar();
 	}
 	
 	fflush(stdin);
+	printf("\nDEBUG: passou\n");
 
-	
+	//o programa não quer ir pra cá	
 	//buscar pela materia
-	int y, n;
+	
 	for (y=0; y < 40; y++) {
 		if (strcmp (materia[y].cod , agoravai) == 0) {
+		
 			for (n=0 ; n < 40 ; n++) {
-				if (temp[n].carga != 0) {
+			
+				if (temp[n].tipo != 0) {
+					printf("\nDEBUG: copiar para temp\n");
 					//copiar materia escolhida e encontrada para vetor temporario
 					temp[n].carga = materia[y].carga;
-					strcpy( materia[y].cod, temp[n].cod);
+					temp[n].tipo  = materia[y].tipo;
+					strcpy(materia[y].cod, temp[n].cod);
+					registrado=1;
+					printf("\nDEBUG: copiado!\n");
+
 					
-					
-				} else if (temp[n].carga == 0) printf("\n*** INDICE %d VAZIO ***\n", n);
+				} else if ((temp[n].carga == 0) && (registrado == 1)) {
+						printf("\n*** INDICE %d VAZIO ***\n", n);
+						registrado=0;
+					}
 			}
 		
 		}
@@ -322,6 +339,8 @@ int cadastrar() {
 	//armazenar informacoes num vetor temporário
 	//strcpy
 
+	printf("\n=======================================================\n\n\n");
+
 
 }
 
@@ -332,7 +351,7 @@ int restante() {
 	int z;
 	
 	for (z=0 ; z<40 ; z++) {
-		printf("\n   %s -- %d horas", temp[z].cod , temp[z].carga );
+		printf("\n   %s -- %d horas  -- tipo: %d", temp[z].cod , temp[z].carga, temp[z].tipo );
 	}
 	
 	printf("\n\n--> Calculando CARGA HORARIA...\n");
@@ -344,7 +363,7 @@ int restante() {
 	printf("\n obrigatorias                   = %d", cargahoraria[4]);
 	printf("\n atividades complementares      = %d", cargahoraria[5]);
 	printf("\n carga horaria do curso (total) = %d", cargahoraria[6]);
-	
+	printf("\n=======================================================\n\n\n");
 }
 
 
